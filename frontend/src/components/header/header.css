@@ -13,6 +13,7 @@ header{
     display: flex;
     align-items: center;
     border-radius: 10px;
+    box-shadow: 0px 0px 10px 10px;
 
 }
 img {
@@ -38,6 +39,7 @@ h1 {
     width: 70%;
     align-items: center;
     font-size: 4rem;
+    text-shadow:  0px 0px 20px #FFD700;
 }
 .nav-left {
     width: 30%;
@@ -64,6 +66,7 @@ h1 {
     transition: color 0.3s ease;
     cursor: pointer;
     font-size:  2rem;
+    text-decoration: underline black;
 
 
 }
@@ -75,10 +78,12 @@ h1 {
     transition: color 0.3s ease;
     cursor: pointer;
     font-size: 2rem;
+    text-decoration: underline black;
 }
 
 .btn-quiz:hover, .btn-contact:hover{
     color: #FFA500;
     text-shadow: 0 0 5px #FFA500;
-    text-decoration: underline darkred;
+    text-decoration: none;
+
 }

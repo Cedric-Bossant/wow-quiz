@@ -1,0 +1,53 @@
+main {
+    height: 80vh;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    font-size: 2rem;
+    justify-content: space-evenly;
+}
+h2 {
+    font-size: 3rem;
+    text-shadow:  1px 1px 1px #2C3E50;
+    margin: 2rem;
+}
+.left-part {
+    border: 2px solid black;
+    text-align: center;
+    width: 60%;
+    border-radius: 10px;
+    backdrop-filter:  blur(5px);
+    box-shadow: 0px 0px 8px 1px;
+
+
+
+
+}
+p {
+    color: white;
+    margin: 2rem;
+    letter-spacing: 1px;
+    text-align: center;
+    padding: 2rem;
+    text-shadow:  2px 2px 2px black;
+
+}
+.first-para {
+font-size: 2.5rem;
+    font-weight: bold;
+}
+
+.right-part {
+    text-align: center;
+    border-radius: 10px;
+    backdrop-filter:  blur(5px);
+    width: 30%;
+    border: 2px solid black;
+    box-shadow: 14px 20px 20px 0px;
+    ;
+
+}
+
+li {
+    list-style: none;
+}
