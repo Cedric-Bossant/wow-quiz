@@ -1,23 +1,10 @@
 import './App.css'
+import Header from "./components/header/header.tsx";
 
 function App() {
     return (
         <>
-            <header>
-                <div className="nav-left">
-
-
-                <a href="home-page.html">
-                    <img src="../src/assets/wow-logo.svg" alt="logo wow quiz" />
-                </a>
-                </div>
-                <h1>Quiz de personnalité WoW of Warcraft</h1>
-
-                <div className="nav-right">
-                    <a className="btn-quiz" href="/quiz">Faire le quiz</a>
-                    <a className="btn-contact" href="/contact">Contact</a>
-                </div>
-            </header>
+           <Header />
 
             <section>
                 <div className="left-part">
