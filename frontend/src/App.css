@@ -1,42 +1,108 @@
-#root {
-  max-width: 1280px;
-  margin: 0 auto;
-  padding: 2rem;
+*{
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+
+}
+header{
+  position: static;
+  background-color: transparent;
+  backdrop-filter: blur(10px);
+  border: 5px solid;
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  border-radius: 10px;
+
+}
+img {
+
+  width: 100%;
+}
+a{
+  width: 25%;
+}
+body {
+  margin: 1rem;
+  height: 100vh;
+  background-image: url('../src/assets/background.jpg');
+  background-size: cover;
+  background-repeat: no-repeat;
+  overflow: hidden;
+  font-family: 'Georgia', serif;
+
+}
+
+h1 {
   text-align: center;
+  width: 70%;
+  align-items: center;
+  font-size: 4rem;
+}
+.nav-left {
+  width: 30%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
+
 }
 
-.logo {
-  height: 6em;
-  padding: 1.5em;
-  will-change: filter;
-  transition: filter 300ms;
+
+.nav-right {
+ width: 25%;
+  display: flex;
+  flex-direction: row;
+  align-items: center;
+  justify-content: space-around;
 }
-.logo:hover {
-  filter: drop-shadow(0 0 2em #646cffaa);
+.btn-quiz{
+  width: fit-content;
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size:  2rem;
+
+
 }
-.logo.react:hover {
-  filter: drop-shadow(0 0 2em #61dafbaa);
+.btn-contact {
+  width:  fit-content;
+  color: #FFD700;
+  text-decoration: none;
+  font-weight: bold;
+  transition: color 0.3s ease;
+  cursor: pointer;
+  font-size: 2rem;
 }
 
-@keyframes logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.btn-quiz:hover, .btn-contact:hover{
+  color: #FFA500;
+  text-shadow: 0 0 5px #FFA500;
+  text-decoration: underline darkred;
 }
 
-@media (prefers-reduced-motion: no-preference) {
-  a:nth-of-type(2) .logo {
-    animation: logo-spin infinite 20s linear;
-  }
+
+
+/*---------------------------------------------------------------------------*/
+section {
+  display: flex;
+  flex-direction: row;
+  flex-wrap: wrap;
 }
 
-.card {
-  padding: 2em;
+.left-part {
+  text-align: center;
+  width: 70%;
 }
 
-.read-the-docs {
-  color: #888;
+.right-part {
+  text-align: center;
+  width: 30%;
+
+}
+
+li {
+  list-style: none;
 }

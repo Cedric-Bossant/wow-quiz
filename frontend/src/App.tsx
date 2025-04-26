@@ -1,35 +1,44 @@
-import { useState } from 'react'
-import reactLogo from './assets/react.svg'
-import viteLogo from '/vite.svg'
 import './App.css'
 
 function App() {
-  const [count, setCount] = useState(0)
+    return (
+        <>
+            <header>
+                <div className="nav-left">
 
-  return (
-    <>
-      <div>
-        <a href="https://vite.dev" target="_blank">
-          <img src={viteLogo} className="logo" alt="Vite logo" />
-        </a>
-        <a href="https://react.dev" target="_blank">
-          <img src={reactLogo} className="logo react" alt="React logo" />
-        </a>
-      </div>
-      <h1>Vite + React</h1>
-      <div className="card">
-        <button onClick={() => setCount((count) => count + 1)}>
-          count is {count}
-        </button>
-        <p>
-          Edit <code>src/App.tsx</code> and save to test HMR
-        </p>
-      </div>
-      <p className="read-the-docs">
-        Click on the Vite and React logos to learn more
-      </p>
-    </>
-  )
+
+                <a href="home-page.html">
+                    <img src="../src/assets/wow-logo.svg" alt="logo wow quiz" />
+                </a>
+                </div>
+                <h1>Quiz de personnalité WoW of Warcraft</h1>
+
+                <div className="nav-right">
+                    <a className="btn-quiz" href="/quiz">Faire le quiz</a>
+                    <a className="btn-contact" href="/contact">Contact</a>
+                </div>
+            </header>
+
+            <section>
+                <div className="left-part">
+                    <h2>Bonjour le monde</h2>
+                    <p>
+                        Lorem ipsum dolor sit amet, consectetur adipisicing elit. Adipisci autem
+                        consequuntur dicta est exercitationem necessitatibus nesciunt odio quos
+                        rerum voluptate.
+                    </p>
+                </div>
+                <div className="right-part">
+                    <h2>Derniers résultats</h2>
+                    <ul>
+                        <li></li>
+                        <li></li>
+                        <li></li>
+                    </ul>
+                </div>
+            </section>
+        </>
+    )
 }
 
 export default App
