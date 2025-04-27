@@ -58,4 +58,32 @@ h1 {
     align-items: center;
     justify-content: space-around;
 }
+.btn-quiz{
+    width: fit-content;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    font-size:  2rem;
+    text-decoration: underline black;
 
+
+}
+.btn-contact {
+    width:  fit-content;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: color 0.3s ease;
+    cursor: pointer;
+    font-size: 2rem;
+    text-decoration: underline black;
+}
+
+.btn-quiz:hover, .btn-contact:hover{
+    color: #FFA500;
+    text-shadow: 0 0 5px #FFA500;
+    text-decoration: none;
+
+}

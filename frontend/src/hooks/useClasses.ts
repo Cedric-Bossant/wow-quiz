@@ -21,7 +21,7 @@ export function useClasses() {
     useEffect(() => {
         const fetchClasses = async () => {
             try {
-                const response = await fetch("http://localhost:1340/api/classes?populate=icon")
+                const response = await fetch("http://localhost:1340/api/classes")
                 const data = await response.json()
                 setClasses(data.data)
             } catch (error) {

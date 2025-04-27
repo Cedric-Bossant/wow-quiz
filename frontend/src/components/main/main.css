@@ -36,6 +36,31 @@ p {
 font-size: 2.5rem;
     font-weight: bold;
 }
+.btn-quiz{
+    width: fit-content;
+    border: 10px solid black;
+    padding: 10px;
+    border-radius: 50px;
+    box-shadow: 0px 0px 20px 0px;
+    color: #FFD700;
+    text-decoration: none;
+    font-weight: bold;
+    transition: 0.3s ease;
+
+    cursor: pointer;
+    font-size:  2rem;
+
+
+}
+
+.btn-quiz:hover {
+    color: #FFA500;
+    border: 7px solid black;
+    text-shadow: 0 0 5px #FFA500;
+    text-decoration: none;
+    box-shadow: 0px 0px 20px 10px;
+
+}
 
 .right-part {
     text-align: center;

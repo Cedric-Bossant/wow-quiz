@@ -20,6 +20,8 @@ function Main() {
                 <p>
                     Répondez avec sincérité (et un peu de fun), et découvrez votre voie dans Azeroth.
                 </p>
+
+                <a className="btn-quiz" href="/quiz">C'est parti !</a>
             </div>
 
             <div className="right-part">
@@ -28,6 +30,7 @@ function Main() {
                     {classes.map((classe) => (
                         <li key={classe.id}>
                             {classe.name}
+
 
                         </li>
                     ))}
