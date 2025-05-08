@@ -9,7 +9,7 @@ return(
     <div className="nav-left">
 
 
-        <a href="home-page.html">
+        <a href="/">
             <img src="../src/assets/wow-logo.svg" alt="logo wow quiz" />
         </a>
     </div>
