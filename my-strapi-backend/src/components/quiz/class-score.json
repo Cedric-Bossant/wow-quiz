@@ -1,0 +1,17 @@
+{
+  "collectionName": "components_quiz_class_scores",
+  "info": {
+    "displayName": "classScore"
+  },
+  "options": {},
+  "attributes": {
+    "score": {
+      "type": "integer"
+    },
+    "class": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::class.class"
+    }
+  }
+}

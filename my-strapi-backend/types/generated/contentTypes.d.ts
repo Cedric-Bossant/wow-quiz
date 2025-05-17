@@ -403,6 +403,7 @@ export interface ApiClassClass extends Struct.CollectionTypeSchema {
 export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
   collectionName: 'questions';
   info: {
+    description: '';
     displayName: 'question';
     pluralName: 'questions';
     singularName: 'question';
@@ -421,7 +422,9 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
       'api::question.question'
     > &
       Schema.Attribute.Private;
+    number: Schema.Attribute.Integer;
     publishedAt: Schema.Attribute.DateTime;
+    responses: Schema.Attribute.Relation<'oneToMany', 'api::response.response'>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -431,7 +434,8 @@ export interface ApiQuestionQuestion extends Struct.CollectionTypeSchema {
 export interface ApiResponseResponse extends Struct.CollectionTypeSchema {
   collectionName: 'responses';
   info: {
-    displayName: 'response';
+    description: '';
+    displayName: 'Answer';
     pluralName: 'responses';
     singularName: 'response';
   };
@@ -439,7 +443,7 @@ export interface ApiResponseResponse extends Struct.CollectionTypeSchema {
     draftAndPublish: true;
   };
   attributes: {
-    answer: Schema.Attribute.Text;
+    answer: Schema.Attribute.String;
     createdAt: Schema.Attribute.DateTime;
     createdBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;
@@ -450,6 +454,8 @@ export interface ApiResponseResponse extends Struct.CollectionTypeSchema {
     > &
       Schema.Attribute.Private;
     publishedAt: Schema.Attribute.DateTime;
+    question: Schema.Attribute.Relation<'oneToOne', 'api::question.question'>;
+    scores: Schema.Attribute.Component<'quiz.class-score', true>;
     updatedAt: Schema.Attribute.DateTime;
     updatedBy: Schema.Attribute.Relation<'oneToOne', 'admin::user'> &
       Schema.Attribute.Private;

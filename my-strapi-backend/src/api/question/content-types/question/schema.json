@@ -4,7 +4,8 @@
   "info": {
     "singularName": "question",
     "pluralName": "questions",
-    "displayName": "question"
+    "displayName": "question",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
@@ -12,6 +13,14 @@
   "attributes": {
     "content": {
       "type": "text"
+    },
+    "number": {
+      "type": "integer"
+    },
+    "responses": {
+      "type": "relation",
+      "relation": "oneToMany",
+      "target": "api::response.response"
     }
   }
 }

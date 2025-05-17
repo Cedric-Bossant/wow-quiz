@@ -31,7 +31,6 @@ function Main() {
                         <li key={classe.id}>
                             {classe.name}
 
-
                         </li>
                     ))}
                 </ul>

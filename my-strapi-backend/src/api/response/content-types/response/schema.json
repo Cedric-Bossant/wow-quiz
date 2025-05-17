@@ -4,14 +4,25 @@
   "info": {
     "singularName": "response",
     "pluralName": "responses",
-    "displayName": "response"
+    "displayName": "Answer",
+    "description": ""
   },
   "options": {
     "draftAndPublish": true
   },
   "attributes": {
     "answer": {
-      "type": "text"
+      "type": "string"
+    },
+    "scores": {
+      "type": "component",
+      "repeatable": true,
+      "component": "quiz.class-score"
+    },
+    "question": {
+      "type": "relation",
+      "relation": "oneToOne",
+      "target": "api::question.question"
     }
   }
 }

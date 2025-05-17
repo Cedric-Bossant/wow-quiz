@@ -3,4 +3,5 @@ il faut le forcé avec cette commande
 
 ```shell
 $env:PORT=1340; npm run develop
+PORT=1340; npm run develop
 ```
