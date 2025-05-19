@@ -9,7 +9,7 @@ function Quiz() {
     const [current, setCurrent] = useState(0);
     const [answers, setAnswers] = useState<any[]>([]);
 
-    console.log("Current question index:", current)
+
     console.log("Questions:", questions)
     if (questions.length === 0) {
         return <p>Chargement des questions...</p>;
@@ -18,22 +18,45 @@ function Quiz() {
     const question = questions[current];
 
 
-    const handleAnswer = (answer: string) => {
-        setAnswers([...answers, answer])
-        if (current + 1 < questions.length) {
-            setCurrent(current + 1)
-        } else {
-            // TODO : calculer les points de classe
-            console.log("fin du quiz")
-        }
-    }
+    const handleAnswer = (answer: any) => {
+        setAnswers([...answers, answer]);
 
+        if (current + 1 < questions.length) {
+            setCurrent(current + 1);
+        } else {
+            const scoreByClass = {
+                "Guerrier": 0,
+                "Mage": 0,
+                "Chaman": 0,
+                "Druide": 0,
+                "Paladin": 0,
+                "Demoniste": 0,
+                "Voleur": 0,
+                "Pretre": 0,
+                "Chasseur": 0,
+            };
+
+            [...answers, answer].forEach((ans) => {
+                ans.scores.forEach((score: any) => {
+                    const className = score.class.name;
+                    const points = score.score;
+
+                    if (scoreByClass[className] !== undefined) {
+                        scoreByClass[className] += points;
+                    }
+
+                });
+
+            });
+            console.log("Fin du quiz. Résultats :", scoreByClass);
+        }
+    };
 
     return(
 <>
 
         <div className="question-container">
-            <h2 className="question-number"> Question N°{question.number}/ {questions.length} </h2>
+            <h2 className="question-number"> Question N°{question.number}/{questions.length} </h2>
             <h3 className="question-title">{question.content}</h3>
 
         </div>

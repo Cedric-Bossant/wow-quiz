@@ -7,7 +7,7 @@ function Main() {
     return (
         <main>
             <div className="left-part">
-                <h2>Bonjour le monde</h2>
+                <h2>Bienvenue en Azeroth</h2>
                 <p className="first-para">
                     Quel est votre véritable destin dans l’univers de World of Warcraft ?
                 </p>
@@ -20,12 +20,14 @@ function Main() {
                 <p>
                     Répondez avec sincérité (et un peu de fun), et découvrez votre voie dans Azeroth.
                 </p>
+                    <input className="nameInput" placeholder={"votre nom"}>
 
+                    </input>
                 <a className="btn-quiz" href="/quiz">C'est parti !</a>
             </div>
 
             <div className="right-part">
-                <h2>Dernières résultats</h2>
+                <h2>Derniers résultats</h2>
                 <ul>
                     {classes.map((classe) => (
                         <li key={classe.id}>
