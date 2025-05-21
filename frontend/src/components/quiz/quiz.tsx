@@ -46,9 +46,45 @@ function Quiz() {
                     }
 
                 });
-
             });
             console.log("Fin du quiz. Résultats :", scoreByClass);
+
+            const target = 100;
+            const sorted = Object.entries(scoreByClass)
+                // entries me permet transformer mon objet en tableau clé valeur
+                //             [   "Guerrier": 0,
+                //                 "Mage": 0,
+                //                 "Chaman": 0,
+                //                 "Druide": 0,
+                //                 "Paladin": 0,
+                //                 "Demoniste": 0,
+                //                 "Voleur": 0,
+                //                 "Pretre": 0,
+                //                 "Chasseur": 0,
+                //              ]
+
+
+                .map(([name, score]) => ({ name, score }))
+                // ici je restructure un tableau en tableau d'objet
+        //                  [
+                //                  {name: "Guerrier": score:0},
+                //                 {name: "Guerrier": score:0},
+                //                 {name: "Mage": score:0},
+                //                 {name: "Chaman": score:0},
+                //                 {name: "Paladin": score:0},
+                //                 {name: "Démoniste": score:0},
+                //                 {name: "Voleur": score:0},
+                //                 {name: "pretre": score:0},
+                //                 {name: "Chasseur": score:0},
+                //            ]
+
+        .sort((a, b) => Math.abs(a.score - target) - Math.abs(b.score - target));
+            //     ici je tri le tableau selon les points qui les sépares de target donc de 100
+
+
+
+
+            console.log("classe la plus proche", sorted);
         }
     };
 
@@ -58,7 +94,6 @@ function Quiz() {
         <div className="question-container">
             <h2 className="question-number"> Question N°{question.number}/{questions.length} </h2>
             <h3 className="question-title">{question.content}</h3>
-
         </div>
 
 
