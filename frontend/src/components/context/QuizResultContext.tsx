@@ -12,7 +12,7 @@ type QuizResultContextType = {
 
 const defaultContext: QuizResultContextType = {
     top3: [],
-    setTop3: () => {}, // fonction vide par défaut
+    setTop3: () => {},
 };
 
 export const QuizResultContext = createContext<QuizResultContextType>(defaultContext);
