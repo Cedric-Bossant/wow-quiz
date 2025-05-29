@@ -1,8 +1,9 @@
 import "./main.css"
 import { useClasses } from "../../hooks/useClasses"
+import { Classe } from "../../types/types.ts";
 
 function Main() {
-    const classes = useClasses()
+    const classes: Classe[] = useClasses()
 
     return (
         <main>

@@ -1,4 +1,5 @@
 import { useContext } from "react";
+import "./result.css"
 import { QuizResultContext } from "../context/QuizResultContext.tsx";
 
 function Result() {
@@ -9,6 +10,7 @@ function Result() {
         <div>
             <h2>Top 3 des classes</h2>
             {top3.map(({ name, score }) => (
+
                 <p key={name}>
                     {name} - {score} points
                 </p>

@@ -1,19 +1,6 @@
 import { useEffect, useState } from "react"
+import { Classe } from "../types/types.ts";
 
-interface Classe {
-    id: number
-    attributes: {
-        nom: string
-        icon?: {
-            data: {
-                attributes: {
-                    url: string
-                }
-            }
-        }
-        description?: string
-    }
-}
 
 export function useClasses() {
     const [classes, setClasses] = useState<Classe[]>([])

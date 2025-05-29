@@ -3,13 +3,14 @@ import {useQuestions} from "../../hooks/useQuestions.ts";
 import {useContext, useState} from "react";
 import {QuizResultContext} from "../context/QuizResultContext.tsx";
 import { useNavigate } from "react-router-dom";
+import type {ClasseName, Response, AnswerScore, Question} from "../../types/types.ts";
 
 
 function Quiz() {
     const navigate = useNavigate();
-    const questions = useQuestions();
+    const questions: Question[] = useQuestions();
     const [current, setCurrent] = useState(0);
-    const [answers, setAnswers] = useState<any[]>([]);
+    const [answers, setAnswers] = useState<Response[]>([]);
     const {setTop3} = useContext(QuizResultContext)
 
 
@@ -20,29 +21,28 @@ function Quiz() {
     const question = questions[current];
 
 
-    const handleAnswer = (answer: any) => {
+    const handleAnswer = (answer: Response) => {
         setAnswers([...answers, answer]);
 
         if (current + 1 < questions.length) {
             setCurrent(current + 1);
         } else {
-            const scoreByClass = {
-                "Guerrier": 0,
-                "Mage": 0,
-                "Chaman": 0,
-                "Druide": 0,
-                "Paladin": 0,
-                "Demoniste": 0,
-                "Voleur": 0,
-                "Pretre": 0,
-                "Chasseur": 0,
+            const scoreByClass: Record<ClasseName, number> = {
+                Guerrier: 0,
+                Mage: 0,
+                Chaman: 0,
+                Druide: 0,
+                Paladin: 0,
+                Demoniste: 0,
+                Voleur: 0,
+                Pretre: 0,
+                Chasseur: 0,
             };
 
-            [...answers, answer].forEach((ans) => {
-                ans.scores.forEach((score: any) => {
-                    const className = score.class.name;
+            [...answers, answer].forEach((ans: Response) => {
+                ans.scores.forEach((score: AnswerScore) => {
+                    const className = score.class.name as ClasseName
                     const points = score.score;
-
                     if (scoreByClass[className] !== undefined) {
                         scoreByClass[className] += points;
                     }
