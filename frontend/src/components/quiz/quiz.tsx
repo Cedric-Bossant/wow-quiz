@@ -39,7 +39,9 @@ function Quiz() {
                 Chasseur: 0,
             };
 
-            [...answers, answer].forEach((ans: Response) => {
+            const newAnswer= [...answers, answer];
+
+            newAnswer.forEach((ans: Response) => {
                 ans.scores.forEach((score: AnswerScore) => {
                     const className = score.class.name as ClasseName
                     const points = score.score;

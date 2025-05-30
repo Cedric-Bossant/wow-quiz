@@ -12,8 +12,8 @@ export type ClasseName =
 export interface Classe {
     id: number;
     name: ClasseName;
-    description?: string;
-    icon?: string;
+    description: string;
+    iconUrl: string;
 }
 
 export interface Response {

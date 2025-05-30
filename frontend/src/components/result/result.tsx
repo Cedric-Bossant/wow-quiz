@@ -1,22 +1,52 @@
 import { useContext } from "react";
+import {useClasses} from "../../hooks/useClasses.ts";
 import "./result.css"
 import { QuizResultContext } from "../context/QuizResultContext.tsx";
+import {Classe} from "../../types/types.ts";
 
 function Result() {
+    const classes: Classe[] = useClasses();
     const { top3 } = useContext(QuizResultContext);
-    console.log(top3);
+
+    if (!top3 || top3.length === 0) {
+        return <p> seulement le chargement</p>;
+    }
+    const winner = top3[0]
+
+    if (classes.length === 0) {
+        return <p>Chargement des classes...</p>;
+    }
+
+   const winnerData:Classe = classes.find((cls) => cls.name.toLocaleLowerCase() === winner.name.toLowerCase());
+
+
+
+
 
     return (
-        <div>
-            <h2>Top 3 des classes</h2>
-            {top3.map(({ name, score }) => (
+        <>
+            <div className="result">
+                <h2>Vous etes un {winner.name} </h2>
+                <h3>Avec un score de {winner.score}/60</h3>
+                <div className="mainclass">
+                    <img className="classIcon" src={winnerData.iconUrl} alt={winner.name}></img>
+                    <p className="desc">
+                        {winnerData.description}
 
-                <p key={name}>
-                    {name} - {score} points
-                </p>
-            ))}
-        </div>
+                    </p>
+                </div>
+            </div>
+            <div className="secondresult">
+                <ul>
+                    <h4>Autre classe envisagable:</h4>
+                    <li> en top 2 {top3[1].name} avec {top3[1].score} points</li>
+                    <li> en top 3 {top3[2].name} avec {top3[2].score} points</li>
+                </ul>
+            </div>
+
+        </>
     );
+
 }
 
 export default Result;
