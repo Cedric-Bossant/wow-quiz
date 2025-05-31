@@ -21,8 +21,6 @@ export function useClasses() {
                     // http://localhost:1340/uploads/Class_Warrior_b7a7b36963.svg
                 }),
                 )
-                console.log(data.data[0].icon[0].url)
-                console.log("iconURL ======== ??", formatted.iconUrl)
                 setClasses(formatted)
 
             } catch (error) {

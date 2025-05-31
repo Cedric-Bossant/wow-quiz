@@ -21,9 +21,7 @@ function Main() {
                 <p>
                     Répondez avec sincérité (et un peu de fun), et découvrez votre voie dans Azeroth.
                 </p>
-                    <input className="nameInput" placeholder={"votre nom"}>
 
-                    </input>
                 <a className="btn-quiz" href="/quiz">C'est parti !</a>
             </div>
 

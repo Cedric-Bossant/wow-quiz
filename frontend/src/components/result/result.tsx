@@ -32,15 +32,14 @@ function Result() {
                     <img className="classIcon" src={winnerData.iconUrl} alt={winner.name}></img>
                     <p className="desc">
                         {winnerData.description}
-
                     </p>
                 </div>
             </div>
             <div className="secondresult">
                 <ul>
                     <h4>Autre classe envisagable:</h4>
-                    <li> en top 2 {top3[1].name} avec {top3[1].score} points</li>
-                    <li> en top 3 {top3[2].name} avec {top3[2].score} points</li>
+                    <li> <p className="top-title">Top 2</p> <p className="top2">{top3[1].name} avec {top3[1].score} points</p></li>
+                    <li> <p className="top-title">Top 3</p> <p className="top2">{top3[2].name} avec {top3[2].score} points</p></li>
                 </ul>
             </div>
 

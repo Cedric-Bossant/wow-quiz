@@ -10,7 +10,7 @@ return(
 
 
         <a href="/">
-            <img src="/assets/wow-logo.svg" alt="logo wow quiz" />
+            <img className="wow-logo" src="/assets/wow-logo.svg" alt="logo wow quiz" />
         </a>
     </div>
     <h1>Quiz de personnalité World of Warcraft</h1>
