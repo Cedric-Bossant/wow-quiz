@@ -19,8 +19,9 @@ header{
 img {
     width: 100%;
 }
-a{
-    width: 25%;
+.wow-icon{
+    width: 30%;
+    margin: 1rem auto;
 }
 body {
     margin: 1rem;
@@ -33,10 +34,17 @@ body {
     font-family: 'Georgia', serif;
 
 }
+.main-title{
+    text-align: center;
+    align-content: center;
+    text-decoration: none;
+    margin: 0 auto;
+    width: 100%;
+    color: black;
 
+}
 h1 {
     text-align: center;
-    width: 70%;
     align-items: center;
     font-size: 4rem;
     text-shadow:  0px 0px 20px #FFD700;
@@ -70,12 +78,47 @@ h1 {
         text-align: center;
         width: 100%;
         align-items: center;
-        font-size: 2rem;
+        font-size: 1rem;
         text-shadow:  0px 0px 20px #FFD700;
     }
 img {
         display: none;
+    width: 0%;
+    }
+    .nav-left {
+        display: none;
     }
 
+
+}
+
+@media (max-width: 1245px) {
+
+    img {
+        width: 140%;
+    }
+
+    h1 {
+
+        object-fit: contain;
+        font-size: 3rem;
+        text-shadow:  0px 0px 20px #FFD700;
+    }
+
+    .main-title{
+        align-content: center;
+        text-decoration: none;
+        margin: 0 auto;
+        width: 100%;
+        color: black;
+
+    }
+    .nav-right {
+        width: 25%;
+        display: none;
+        flex-direction: row;
+        align-items: center;
+        justify-content: space-around;
+    }
 
 }
