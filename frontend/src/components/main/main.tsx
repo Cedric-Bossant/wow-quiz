@@ -1,9 +1,12 @@
 import "./main.css"
-import { useClasses } from "../../hooks/useClasses"
-import { Classe } from "../../types/types.ts";
+import { useUsername } from "../context/UsernameContext.tsx";
+import { useNavigate } from "react-router-dom";
+import { useLastQuizResults } from "../../hooks/useLastQuizResults.ts";
 
 function Main() {
-    const classes: Classe[] = useClasses()
+    const { username, setUsername } = useUsername()
+    const navigate = useNavigate()
+    const results = useLastQuizResults();
 
     return (
         <main>
@@ -21,16 +24,39 @@ function Main() {
                 <p>
                     Répondez avec sincérité (et un peu de fun), et découvrez votre voie dans Azeroth.
                 </p>
-
-                <a className="btn-quiz" href="/quiz">C'est parti !</a>
+                    <input
+                    type="text"
+                    placeholder="Votre pseudo"
+                    value={username}
+                    onChange={(e) => setUsername(e.target.value)}
+                    required
+                    />
+                <button
+                    className="btn-quiz"
+                    onClick={() => {
+                        if (username.trim() === "") {
+                        alert("Merci de saisir un pseudo !");
+                        } else {
+                        navigate("/quiz");
+                        }
+                    }}
+                    >
+                    C'est parti !
+                    </button>
             </div>
 
             <div className="right-part">
                 <h2>Derniers résultats</h2>
                 <ul>
-                    {classes.map((classe) => (
-                        <li key={classe.id}>
-                            {classe.name}
+                    {results.map((res) => (
+                        <li key={res.id}>
+                            {res.class && (
+                                <div className="logo-and-name">
+                                    <img className="last-results-logo" src={`http://localhost:1340${res.class.iconUrl}`} alt={res.class.name} />
+                                    <p>{res.username}</p>
+                                </div>
+                            )}
+
 
                         </li>
                     ))}

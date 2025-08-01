@@ -58,6 +58,17 @@ p {
 font-size: 2.5rem;
     font-weight: bold;
 }
+
+input {
+
+    width: 30%;
+    height: 5%;
+    border-radius: 50px;
+    text-align: center;
+    font-size: large;
+    font-weight: bolder;
+}
+
 .btn-quiz{
     width: fit-content;
     border: 10px solid black;
@@ -97,6 +108,24 @@ font-size: 2.5rem;
 
 li {
     list-style: none;
+}
+
+.logo-and-name{
+    display: flex;
+    align-items: center;
+    margin: 0 auto
+}
+.last-results-logo {
+    display: block;
+      width: 100px;
+  height: auto;
+  margin-right: 10px;
+  margin-left: 10px;
+  margin-top: 10px;
+}
+.logo-and-name > p {
+    margin: 0 auto;
+    font-weight: bold;
 }
 
 
