@@ -4,6 +4,7 @@ import {useContext, useState} from "react";
 import {QuizResultContext} from "../context/QuizResultContext.tsx";
 import { useNavigate } from "react-router-dom";
 import type {ClasseName, Response, AnswerScore, Question} from "../../types/types.ts";
+import { useQuizLog } from "../context/QuizLogContext.tsx";
 
 
 function Quiz() {
@@ -11,7 +12,8 @@ function Quiz() {
     const questions: Question[] = useQuestions();
     const [current, setCurrent] = useState(0);
     const [answers, setAnswers] = useState<Response[]>([]);
-    const {setTop3} = useContext(QuizResultContext)
+    const {setWinner} = useContext(QuizResultContext);
+    const { setAnswersLog} = useQuizLog();
 
 
     if (questions.length === 0) {
@@ -22,6 +24,15 @@ function Quiz() {
 
 
     const handleAnswer = (answer: Response) => {
+        
+        setAnswersLog((prev) => [
+        ...prev,
+        {
+            question: question.content,
+            answer: answer.answer
+        }
+        ]);
+
         setAnswers([...answers, answer]);
 
         if (current + 1 < questions.length) {
@@ -87,8 +98,8 @@ function Quiz() {
 
 
             console.log("classe la plus proche", sorted);
-            const top3 = sorted.slice(0, 3);
-            setTop3(top3);
+            const best = sorted[0];
+            setWinner(best);
             navigate("/result")
         }
     };

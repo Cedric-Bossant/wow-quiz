@@ -1,25 +1,19 @@
-# Étape 1 : Build de l'app
+# Étape de build
 FROM node:18-alpine AS builder
 
 WORKDIR /app
-
 COPY . .
-
 RUN npm install
 RUN npm run build
 
-# Étape 2 : Serveur pour l'app
-FROM node:18-alpine
+# Étape de production (serveur statique avec nginx)
+FROM nginx:alpine
 
-WORKDIR /app
+COPY --from=builder /app/dist /usr/share/nginx/html
 
-COPY --from=builder /app/dist ./dist
-COPY --from=builder /app/package.json ./
-COPY --from=builder /app/node_modules ./node_modules
+# Copie d'une config Nginx minimale 
+COPY nginx.conf /etc/nginx/conf.d/default.conf
 
-# Installe un serveur statique (vite preview ou http-server)
-RUN npm install -g serve
+EXPOSE 80
 
-EXPOSE 3000
-
-CMD ["serve", "-s", "dist", "--single"]
+CMD ["nginx", "-g", "daemon off;"]

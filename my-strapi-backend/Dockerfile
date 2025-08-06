@@ -6,8 +6,6 @@ COPY . .
 
 RUN npm install
 
-# Expose le port interne de Strapi
-EXPOSE 1340
+EXPOSE 1337
 
-
-CMD ["npm", "run", "develop"]
+CMD ["npm", "run", "start"]

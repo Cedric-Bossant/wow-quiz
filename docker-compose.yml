@@ -9,11 +9,14 @@ services:
       - ./frontend:/app
     depends_on:
       - backend
+    environment:
+      VITE_API_URL: http://localhost:1337
+      VITE_LOG_API_URL: http://localhost:4000
 
   backend:
     build: ./my-strapi-backend
     ports:
-      - "1340:1340"
+      - "1337:1337"
     volumes:
       - ./my-strapi-backend:/app
     environment:
@@ -23,6 +26,7 @@ services:
       DATABASE_NAME: strapi
       DATABASE_USERNAME: ${POSTGRES_USER}
       DATABASE_PASSWORD: ${POSTGRES_PASSWORD}
+      NODE_ENV: development
     depends_on:
       - db
 
@@ -37,5 +41,24 @@ services:
     ports:
       - "5433:5432"
 
+  quiz-logs-api:
+    build: ./quiz-logs-api
+    ports:
+      - "4000:4000"
+    volumes:
+      - ./quiz-logs-api:/app
+    environment:
+      MONGODB_URI: mongodb://mongodb:27017/quiz-logs
+    depends_on:
+      - mongodb
+
+  mongodb:
+    image: mongo:6
+    ports:
+      - "27017:27017"
+    volumes:
+      - mongodata:/data/db
+
 volumes:
   pgdata:
+  mongodata:
