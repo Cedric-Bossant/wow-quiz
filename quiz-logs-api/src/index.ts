@@ -1,7 +1,7 @@
 import express from 'express';
 import mongoose from 'mongoose';
 import cors from 'cors';
-import QuizLog from './models/Quizlog.ts';
+import QuizLog from './models/Quizlog';
 
 const app = express();
 const PORT = 5000;
@@ -11,7 +11,7 @@ app.use(express.json());
 
 mongoose.connect('mongodb://localhost:27017/quizlogs')
   .then(() => console.log('MongoDB connecté'))
-  .catch((err) => console.error('Connexion échouée :', err));
+  .catch((err: any) => console.error('Connexion échouée :', err));
 
 app.post('/logs', async (req, res) => {
   try {
@@ -27,7 +27,7 @@ app.get('/logs', async (_req, res) => {
   try {
     const logs = await QuizLog.find().sort({ createdAt: -1 });
     res.json(logs);
-  } catch (err) {
+  } catch (err: any) {
     res.status(500).json({ error: 'Erreur lors de la récupération des logs' });
   }
 });
