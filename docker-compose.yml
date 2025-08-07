@@ -46,8 +46,6 @@ services:
     build: ./quiz-logs-api
     ports:
       - "4000:4000"
-    volumes:
-      - ./quiz-logs-api:/app
     environment:
       MONGODB_URI: mongodb://mongodb:27017/quiz-logs
     depends_on:
